@@ -17,18 +17,18 @@
 pkgbase="spl-linux-vfio"
 pkgname=("spl-linux-vfio" "spl-linux-vfio-headers")
 
-pkgver=0.7.8.4.15.12.1
+pkgver=0.7.9.4.15.12.1
 pkgrel=1
 makedepends=("linux-vfio-headers=4.15.12-1" "git")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
-source=("https://github.com/zfsonlinux/zfs/releases/download/zfs-0.7.8/spl-0.7.8.tar.gz")
-sha256sums=("f6c9fe37d149da7fec34ee3bf32302a16b4cfcd84b8c6aa3d764ceb816587636")
+source=("https://github.com/zfsonlinux/zfs/releases/download/zfs-0.7.9/spl-0.7.9.tar.gz")
+sha256sums=("49832e446a5abce0b55ba245c9b5f94959604d44378320fdffae0233bf1e8c00")
 license=("GPL")
-depends=("spl-utils-common=0.7.8" "kmod" "linux-vfio=4.15.12-1")
+depends=("spl-utils-common=0.7.9" "kmod" "linux-vfio=4.15.12-1")
 
 build() {
-    cd "${srcdir}/spl-0.7.8"
+    cd "${srcdir}/spl-0.7.9"
     ./autogen.sh
     ./configure --prefix=/usr --libdir=/usr/lib --sbindir=/usr/bin \
                 --with-linux=/usr/lib/modules/4.15.12-1-vfio/build \
@@ -44,7 +44,7 @@ package_spl-linux-vfio() {
     groups=("archzfs-linux-vfio")
     conflicts=('spl-linux-vfio-git')
     replaces=("spl-git")
-    cd "${srcdir}/spl-0.7.8"
+    cd "${srcdir}/spl-0.7.9"
     make DESTDIR="${pkgdir}" install
     mv "${pkgdir}/lib" "${pkgdir}/usr/"
     # Remove src dir
@@ -54,7 +54,7 @@ package_spl-linux-vfio() {
 package_spl-linux-vfio-headers() {
     pkgdesc="Solaris Porting Layer kernel headers."
     conflicts=('spl-archiso-linux-headers' 'spl-archiso-linux-git-headers' 'spl-linux-hardened-headers' 'spl-linux-hardened-git-headers' 'spl-linux-lts-headers' 'spl-linux-lts-git-headers' 'spl-linux-headers' 'spl-linux-git-headers'  'spl-linux-vfio-git-headers' 'spl-linux-zen-headers' 'spl-linux-zen-git-headers' )
-    cd "${srcdir}/spl-0.7.8"
+    cd "${srcdir}/spl-0.7.9"
     make DESTDIR="${pkgdir}" install
     rm -r "${pkgdir}/lib"
     # Remove reference to ${srcdir}
