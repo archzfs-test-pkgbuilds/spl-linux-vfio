@@ -19,7 +19,7 @@ pkgname=("spl-linux-vfio" "spl-linux-vfio-headers")
 
 pkgver=0.7.9.4.15.12.1
 pkgrel=1
-makedepends=("linux-vfio-headers=4.15.12-1" "git")
+makedepends=("linux-vfio-headers=4.15.12-1")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
 source=("https://github.com/zfsonlinux/zfs/releases/download/zfs-0.7.9/spl-0.7.9.tar.gz")
