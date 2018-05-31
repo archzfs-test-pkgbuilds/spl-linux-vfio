@@ -43,7 +43,6 @@ package_spl-linux-vfio() {
     provides=("spl")
     groups=("archzfs-linux-vfio")
     conflicts=('spl-linux-vfio-git')
-    replaces=("spl-git")
     cd "${srcdir}/spl-0.7.9"
     make DESTDIR="${pkgdir}" install
     mv "${pkgdir}/lib" "${pkgdir}/usr/"
