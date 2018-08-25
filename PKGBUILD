@@ -21,7 +21,7 @@ _splver="0.7.9"
 _kernelver="4.17.14.arch1-1"
 _extramodules="${_kernelver/.arch/-arch}-vfio-ARCH"
 
-pkgver="${_splver}.$(echo ${_kernelver} | sed s/-/./g)"
+pkgver="${_splver}_$(echo ${_kernelver} | sed s/-/./g)"
 pkgrel=1
 makedepends=("linux-vfio-headers=${_kernelver}")
 arch=("x86_64")

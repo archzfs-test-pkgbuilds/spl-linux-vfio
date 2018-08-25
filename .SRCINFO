@@ -1,5 +1,5 @@
 pkgbase = spl-linux-vfio
-	pkgver = 0.7.9.4.17.14.arch1.1
+	pkgver = 0.7.9_4.17.14.arch1.1
 	pkgrel = 1
 	url = http://zfsonlinux.org/
 	arch = x86_64
