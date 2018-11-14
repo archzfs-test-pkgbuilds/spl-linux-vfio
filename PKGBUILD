@@ -17,7 +17,7 @@
 #
 pkgbase="spl-linux-vfio"
 pkgname=("spl-linux-vfio" "spl-linux-vfio-headers")
-_splver="0.7.11"
+_splver="0.7.12"
 _kernelver="4.18.5.arch1-1"
 _extramodules="${_kernelver/.arch/-arch}-vfio"
 
@@ -27,9 +27,9 @@ makedepends=("linux-vfio-headers=${_kernelver}")
 arch=("x86_64")
 url="http://zfsonlinux.org/"
 source=("https://github.com/zfsonlinux/zfs/releases/download/zfs-${_splver}/spl-${_splver}.tar.gz")
-sha256sums=("d6ddd225e7f464007c960f10134c8a48fb0de525f75ad05d5ddf36685b1ced67")
+sha256sums=("4709a06e913bbbeb634161a8b68c3f879e5b6040c6c0c09b1f51042b3178c274")
 license=("GPL")
-depends=("spl-utils-common=${_splver}" "kmod" "linux-vfio=${_kernelver}")
+depends=("kmod" "linux-vfio=${_kernelver}")
 
 build() {
     cd "${srcdir}/spl-${_splver}"
@@ -56,7 +56,7 @@ package_spl-linux-vfio() {
 package_spl-linux-vfio-headers() {
     pkgdesc="Solaris Porting Layer kernel headers."
     provides=("spl-headers")
-    conflicts=("spl-dkms" "spl-dkms-git" "spl-headers")
+    conflicts=("spl-dkms" "spl-dkms-git" "spl-dkms-rc" "spl-headers")
     cd "${srcdir}/spl-${_splver}"
     make DESTDIR="${pkgdir}" install
     rm -r "${pkgdir}/lib"
